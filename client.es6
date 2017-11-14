@@ -1,24 +1,23 @@
-function pizza(...ingredients) {
+function pizzaToppings(...ingredients) {
     ingredients.push('cheese');
-    console.log('this pizza has', ingredients);
     return ingredients;
 }
 
-let newPizza = new pizza('tomatoes', 'pepperoni', 'sausage');
+let git  = new pizzaToppings('tomatoes', 'pepperoni', 'sausage');
 
 const TAX = 0.07;
-const basePrice = 10.99;
-const toppings = 0.99;
+const smPizza = 8.99;
+const mdPizza = 10.99;
+const lgPizza = 12.99;
+const topPrice = 0.99;
 
-
-let totalCost = (newPizza) => {
-    return ((basePrice + (newPizza.length * toppings)) * TAX) + basePrice;
+let order = (toppings, size) => {
+    let totalCost = (toppings, size) => {
+        return ((size + (toppings.length * topPrice)) * TAX) + size + (toppings.length * topPrice);
+    }
+    return totalCost(toppings, size);
 }
 
-let order = (newPizza) => {
-    console.log(newPizza);
-    totalCost(newPizza);
-    console.log(totalCost(newPizza));
-}
+let revenue = order(toppings, mdPizza);
 
-order(newPizza);
+console.log(revenue);
